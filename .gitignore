@@ -1,2 +1,4 @@
 venv
 *.pkl
+# hide my images
+images/oselu/*.jpg
