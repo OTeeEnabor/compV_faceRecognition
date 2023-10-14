@@ -11,12 +11,11 @@ recognizer.read("config/trainer.yaml")
 labels = []
 with open("labels.pickle", "rb") as file:
     og_labels = pickle.load(file)
-
-    labels = [i for i in og_labels]
+    print(og_labels)
 
 # access webcam using opencv
 cap = cv2.VideoCapture(0)
-print(labels)
+# print(labels)
 while True:
     # capture frame by fra,e
     ret, frame = cap.read()
@@ -34,11 +33,11 @@ while True:
         id_, conf = recognizer.predict(roi_gray)
         if conf >= 45 and conf <= 85:
             print(id_)
-            print(labels[id_])
+            print(og_labels[id_])
             font = cv2.FONT_HERSHEY_COMPLEX
-            name = str(labels[id_])
+            name = og_labels[id_]
             # print(type(name))
-            colour = (255, 255, 255)
+            colour = (0, 0, 255)
             stroke = 2
             cv2.putText(frame, name, (x,y), font, 1, colour, stroke, cv2.LINE_AA)
 
