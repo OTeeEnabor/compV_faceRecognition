@@ -1,4 +1,5 @@
 venv
 *.pkl
+config/
 # hide my images
 images/oselu/*.jpg
